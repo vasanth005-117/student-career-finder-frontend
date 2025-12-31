@@ -1,0 +1,220 @@
+.progress-tracker-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.progress-tracker-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease;
+}
+
+.tracker-header {
+  margin-bottom: 60px;
+}
+
+.progress-roadmap {
+  position: relative;
+  padding-left: 60px;
+}
+
+.progress-milestone {
+  position: relative;
+  margin-bottom: 40px;
+  animation: slideInLeft 0.6s ease;
+  animation-fill-mode: both;
+}
+
+.progress-milestone:nth-child(1) { animation-delay: 0.1s; }
+.progress-milestone:nth-child(2) { animation-delay: 0.2s; }
+.progress-milestone:nth-child(3) { animation-delay: 0.3s; }
+.progress-milestone:nth-child(4) { animation-delay: 0.4s; }
+.progress-milestone:nth-child(5) { animation-delay: 0.5s; }
+
+.milestone-marker {
+  position: absolute;
+  left: -60px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marker-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+  z-index: 2;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.progress-milestone.completed .marker-circle {
+  background: linear-gradient(135deg, var(--success), var(--primary-cyan));
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+}
+
+.connector-line {
+  width: 3px;
+  height: 100px;
+  background: linear-gradient(180deg, var(--primary-blue), var(--primary-purple));
+  margin-top: -10px;
+  z-index: 1;
+}
+
+.progress-milestone.completed .connector-line {
+  background: linear-gradient(180deg, var(--success), var(--primary-cyan));
+}
+
+.milestone-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.milestone-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.2);
+  border-color: var(--primary-blue);
+}
+
+.milestone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.milestone-header h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.career-title {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.status-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.status-badge.completed {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.status-badge.in-progress {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--warning);
+  border: 1px solid var(--warning);
+}
+
+.milestone-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.milestone-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 8px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-cyan));
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.progress-percentage {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  min-width: 45px;
+}
+
+.skill-developed,
+.resources,
+.notes {
+  padding: 12px;
+  background: rgba(148, 163, 184, 0.05);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.skill-developed strong,
+.resources strong,
+.notes strong {
+  color: var(--primary-blue);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.milestone-actions {
+  margin-top: 20px;
+}
+
+.empty-state-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state-section p {
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .progress-roadmap {
+    padding-left: 40px;
+  }
+  
+  .milestone-marker {
+    left: -40px;
+  }
+  
+  .marker-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .milestone-header {
+    flex-direction: column;
+  }
+}
